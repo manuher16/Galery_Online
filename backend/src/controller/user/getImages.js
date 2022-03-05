@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const getImages = async (req, res) => {
     try {
         const { userId } = req;
+        console.log(userId)
         const images = await User.aggregate([
             {
                 '$match': {
-                    '_id': mongoose.Types.ObjectId('61d5efec9862b2f7d1b27ef5')
+                    '_id': mongoose.Types.ObjectId(userId)
                 }
             }, {
                 '$lookup': {
